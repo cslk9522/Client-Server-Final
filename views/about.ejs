@@ -1,0 +1,59 @@
+<% include ./partials/header %>
+
+    <div class="row">
+        <h1 style="text-align: center">About</h1>
+        <div style="width: 50%; margin: 25px auto;">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 style="text-align: center">HQ Office Address</h3>
+                </div>
+                <div class="panel-body">
+                    <% if(!currentUser.country || !currentUser.city || !currentUser.street) { %>
+                        <span>This will be updated once you update your address</span>
+                        <% } else { %>
+                            <span>
+                        <%= currentUser.country %>, <%= currentUser.city %>, <%= currentUser.street %></span>
+                            <% } %>
+                </div>
+
+                <div class="panel-heading">
+                    <h3 style="text-align: center">Email</h3>
+                </div>
+                <div class="panel-body">
+                    <span><a href="localhost:3000"><%= currentUser.email %></a></span>
+                </div>
+
+                <div class="panel-heading">
+                    <h3 style="text-align: center">Website</h3>
+                </div>
+                <div class="panel-body">
+                    <span><a href="localhost:3000">Example Website</a></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <a class="btn btn-lg" href="https://facebook.com"><i class="fa fa-facebook "></i></a>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-lg" href="https://whatsapp.com"><i class="fa fa-whatsapp "></i></a>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-lg" href="https://instagram.com"><i class="fa fa-instagram "></i></a>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-lg" href="https://linkedin.com"><i class="fa fa-linkedin "></i></a>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-lg" href="https://google.com"><i class="fa fa-google "></i></a>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-lg" href="https://youtube.com"><i class="fa fa-youtube "></i></a>
+                </div>
+            </div>
+            <br>
+            <a href="https://moodle22.braude.ac.il/pluginfile.php/105789/mod_resource/content/0/FinalTask.pdf">Privacy Policy</a><br>
+            <a href="https://moodle22.braude.ac.il/pluginfile.php/105789/mod_resource/content/0/FinalTask.pdf">Terms Of Use</a>
+        </div>
+
+        <% include ./partials/footer %>

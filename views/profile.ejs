@@ -1,0 +1,73 @@
+<% include ./partials/header %>
+    <div class="row">
+        <h1 style="text-align: center">Profile Setting</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/update-details?_method=PUT" method="post">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input class="form-control" type="text" name="firstname" value="<%=currentUser.firstName%>" required>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input class="form-control" type="text" name="lastname" value="<%=currentUser.lastName%>" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input class="form-control" type="text" name="phone" value="<%=currentUser.phoneNumber%>">
+                </div>
+                <div class="form-group ">
+                    <label>Country</label>
+                    <input class="form-control " type="text" name="country" value="<%=currentUser.country%>">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input class="form-control" type="email" name="email" value="<%=currentUser.email%>" required>
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input class="form-control" type="text" name="city" value="<%=currentUser.city%>">
+                </div>
+                <div class="form-group">
+                    <label>Street</label>
+                    <input class="form-control" type="text" name="street" value="<%=currentUser.street%>">
+                </div>
+                <div class="form-group">
+                    <label>Zip Code</label>
+                    <input class="form-control" type="text" name="zip" value="<%=currentUser.zipCode%>">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-lg btn-primary btn-block">Update Profile</button>
+                </div>
+            </form>
+        </div>
+        <hr>
+
+        <div class="row">
+            <h1 style="text-align: center">Change Password</h1>
+            <div style="width: 30%; margin: 25px auto;">
+                <form action="/update-password" method="post">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input class="form-control" type="email" name="email2" value="<%=currentUser.email%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Old Password</label>
+                        <input class="form-control" type="password" name="oldpass" required>
+                    </div>
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input class="form-control" type="password" name="newpass" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input class="form-control" type="password" name="repeatpass" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-primary btn-block">Update Password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <% include ./partials/footer %>

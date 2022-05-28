@@ -1,0 +1,61 @@
+<% include ./partials/header %>
+
+    <div class="row">
+        <h1 style="text-align: center">Sign Up</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form id="register-form" action="/register" method="post">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z]).{6,}" title="Password Must Be At Least 6 Characters Long And Include a Number" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="repeatpass" placeholder="Repeat Password" pattern="(?=.*\d).{6,}" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="firstname" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="lastname" placeholder="Last Name" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="promocode" placeholder="Have a Promo Code?">
+                </div>
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6LdZaN8fAAAAAHfgn5M6TowRd_8tu6T9yMT4P3ae"></div><br>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-lg btn-primary btn-block">Sign Up!</button>
+                </div>
+            </form>
+            <a href="/forgot-password">Forgot Password?</a> <br>
+            <a href="/products">Go Back</a>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js" integrity="sha512-YUkaLm+KJ5lQXDBdqBqk7EVhJAdxRnVdT2vtCzwPHSweCzyMgYV/tgGF4/dCyqtCC2eCphz0lRQgatGVdfR0ww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Google ReCaptcha / START -->
+    <script>
+        $(document).ready(function() {
+            $('#register-form').submit(function() {
+                $(this).ajaxSubmit({
+                    error: function(xhr) {
+                        status('Error: ' + xhr.status);
+                    },
+                    success: function(response) {
+                        console.log(response);
+                    }
+                });
+                //Very important line, it disables the page refresh.
+                return false;
+            });
+        });
+    </script>
+    <!-- Google ReCaptcha / END -->
+
+    <% include ./partials/footer %>
